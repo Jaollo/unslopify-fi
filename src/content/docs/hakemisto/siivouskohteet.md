@@ -3,13 +3,13 @@ title: Siivouskohteet
 description: "~150 tunnettua bloatware- ja orpotiedostokaavaa kategorioittain."
 ---
 
-Tunnetut bloatware- ja orpotiedostokaavat on keratty Vaiheen 1 skripteista 03 ja 18. Jarjestelmaskanneri (`scan-system.ps1`) kayttaa naita tunnistaakseen jaanteet. Kaikki polut kayttavat ymparistomuuttujia.
+Tunnetut bloatware- ja orpotiedostokaavat on kerätty Vaiheen 1 skripteista 03 ja 18. Järjestelmäskanneri (`scan-system.ps1`) käyttää näitä tunnistakseen jäänteet. Kaikki polut käyttävät ympäristömuuttujia.
 
 ## Program Files (~35 kohdetta)
 
 ### Mainosohjelmat / Paketoidut ohjelmat
 
-Nama tulevat usein valmiiksi asennettuina uusissa tietokoneissa:
+Nämä tulevat usein valmiiksi asennettuina uusissa tietokoneissa:
 
 - `$env:ProgramFiles\Adobe`
 - `$env:ProgramFiles\CapCut`
@@ -17,9 +17,9 @@ Nama tulevat usein valmiiksi asennettuina uusissa tietokoneissa:
 - `${env:ProgramFiles(x86)}\Adobe`
 - `${env:ProgramFiles(x86)}\CapCut`
 
-### Antivirusohjelmien kokeiluversiot / Jaanteet
+### Antivirusohjelmien kokeiluversiot / Jäänteet
 
-OEM-valmistajat asentavat naita uusiin koneisiin. Poiston jalkeen ne jattavat usein kansioita:
+OEM-valmistajat asentavat näitä uusiin koneisiin. Poiston jälkeen ne jättävät usein kansioita:
 
 - `$env:ProgramFiles\McAfee`
 - `$env:ProgramFiles\McAfee.com`
@@ -41,7 +41,7 @@ OEM-valmistajat asentavat naita uusiin koneisiin. Poiston jalkeen ne jattavat us
 
 ### Apple (lopetettu / EOL)
 
-iTunes ja QuickTime ovat aikansa elaneita mutta jaavat usein koneelle:
+iTunes ja QuickTime ovat aikansa eläneitä mutta jäävät usein koneelle:
 
 - `$env:ProgramFiles\Bonjour`
 - `$env:ProgramFiles\iTunes`
@@ -64,7 +64,7 @@ iTunes ja QuickTime ovat aikansa elaneita mutta jaavat usein koneelle:
 
 ### Tietokonevalmistajien bloatware
 
-Nama tulevat valmiiksi HP-, Dell-, Lenovo- ja muiden valmistajien koneissa:
+Nämä tulevat valmiiksi HP-, Dell-, Lenovo- ja muiden valmistajien koneissa:
 
 - `$env:ProgramFiles\HP`
 - `$env:ProgramFiles\HPSoftware`
@@ -87,9 +87,9 @@ Nama tulevat valmiiksi HP-, Dell-, Lenovo- ja muiden valmistajien koneissa:
 - `$env:ProgramFiles\AnyDesk`
 - `$env:ProgramFiles\CCleaner`
 
-### Kuolleet suoritusymparistot / Mainostyokalupalkit
+### Kuolleet suoritusympäristöt / Mainosstyökalupalkit
 
-Nama ovat jopa vuosikymmenia vanhoja ohjelmia jotka roikkuvat jarjestelmassa:
+Nämä ovat jopa vuosikymmenia vanhoja ohjelmia jotka roikkuvat järjestelmässä:
 
 - `$env:ProgramFiles\Microsoft Silverlight`
 - `${env:ProgramFiles(x86)}\Microsoft Silverlight`
@@ -103,7 +103,7 @@ Nama ovat jopa vuosikymmenia vanhoja ohjelmia jotka roikkuvat jarjestelmassa:
 
 ## ProgramData (~15 kohdetta)
 
-Koko koneen laajuista ohjelma-dataa -- nama jaavat usein poiston jalkeen:
+Koko koneen laajuista ohjelma-dataa -- nämä jäävät usein poiston jälkeen:
 
 - `$env:ProgramData\Adobe`
 - `$env:ProgramData\CapCut`
@@ -145,7 +145,7 @@ Koko koneen laajuista ohjelma-dataa -- nama jaavat usein poiston jalkeen:
 - `Local\ConnectedDevicesPlatform`
 - `Local\VirtualStore`
 
-### Pelikaynnistimien jaanteet (jos poistettu)
+### Pelikäynnistimien jäänteet (jos poistettu)
 
 - `Local\EpicGamesLauncher`
 - `Local\Battle.net`
@@ -155,7 +155,7 @@ Koko koneen laajuista ohjelma-dataa -- nama jaavat usein poiston jalkeen:
 - `Local\Riot Games`
 - `Local\Overwolf`
 
-### Sovellusten jaanteet (jos poistettu)
+### Sovellusten jäänteet (jos poistettu)
 
 - `Local\Discord`
 - `Local\slack`
@@ -166,7 +166,7 @@ Koko koneen laajuista ohjelma-dataa -- nama jaavat usein poiston jalkeen:
 - `Local\AzureFunctionsTools`
 - `Local\Origin`
 
-### Antivirusohjelmien jaanteet (jos poistettu)
+### Antivirusohjelmien jäänteet (jos poistettu)
 
 - `Local\AVAST Software`
 - `Local\AVG`
@@ -202,7 +202,7 @@ Koko koneen laajuista ohjelma-dataa -- nama jaavat usein poiston jalkeen:
 - `Roaming\Macromedia`
 - `Roaming\Adobe\Flash Player`
 
-### Vanhojen sovellusten jaanteet (jos poistettu)
+### Vanhojen sovellusten jäänteet (jos poistettu)
 
 - `Roaming\Skype`
 - `Roaming\discord`
@@ -217,7 +217,7 @@ Koko koneen laajuista ohjelma-dataa -- nama jaavat usein poiston jalkeen:
 - `Roaming\GIMP`
 - `Roaming\EasyAntiCheat`
 
-### Antivirusohjelmien / apuohjelmien jaanteet (jos poistettu)
+### Antivirusohjelmien / apuohjelmien jäänteet (jos poistettu)
 
 - `Roaming\Malwarebytes`
 - `Roaming\AVAST Software`
@@ -233,7 +233,7 @@ Koko koneen laajuista ohjelma-dataa -- nama jaavat usein poiston jalkeen:
 - `Roaming\Logitech`
 - `Roaming\Apple Computer`
 
-### Pelikaynnistimien jaanteet (jos poistettu)
+### Pelikäynnistimien jäänteet (jos poistettu)
 
 - `Roaming\Wargaming.net`
 - `Roaming\Battlestate Games`

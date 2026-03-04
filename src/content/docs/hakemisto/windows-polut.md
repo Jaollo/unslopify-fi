@@ -3,60 +3,60 @@ title: Windows-polut
 description: Hakemisto- ja rekisteriviiteopas Windows 11:lle.
 ---
 
-## Kayttajan kansiot
+## Käyttäjän kansiot
 
-| Muuttuja | Tyypillinen polku | Sisalto |
+| Muuttuja | Tyypillinen polku | Sisältö |
 |----------|------------------|---------|
-| `$env:USERPROFILE` | `C:\Users\<nimi>` | Kayttajan juurikansio |
+| `$env:USERPROFILE` | `C:\Users\<nimi>` | Käyttäjän juurikansio |
 | `$env:APPDATA` | `C:\Users\<nimi>\AppData\Roaming` | Ohjelmien asetukset (siirtyy profiilin mukana) |
 | `$env:LOCALAPPDATA` | `C:\Users\<nimi>\AppData\Local` | Ohjelmien paikalliset tiedot |
-| `$env:TEMP` / `$env:TMP` | `C:\Users\<nimi>\AppData\Local\Temp` | Valiaikaiset tiedostot |
+| `$env:TEMP` / `$env:TMP` | `C:\Users\<nimi>\AppData\Local\Temp` | Väliaikaiset tiedostot |
 | `$env:HOMEPATH` | `\Users\<nimi>` | Suhteellinen kotikansion polku |
 
-### AppData-alikansiot selitettyna
+### AppData-alikansiot selitettynä
 
-| Kansio | Mita sinne menee |
+| Kansio | Mitä sinne menee |
 |--------|-----------------|
-| `AppData\Local` | Varit, tietokannat, iso ohjelma-data -- ei siirry koneiden valilla |
+| `AppData\Local` | Värit, tietokannat, iso ohjelma-data -- ei siirry koneiden välillä |
 | `AppData\LocalLow` | Matalan turvallisuustason ohjelmat (selaimet, Java) |
 | `AppData\Roaming` | Asetustiedostot jotka siirtyvat domain-profiilin mukana |
 
 :::tip[Vinkki]
-Helpoin tapa avata AppData-kansio: paina `Win+R`, kirjoita `%appdata%` ja paina Enter. Paaset suoraan Roaming-kansioon.
+Helpoin tapa avata AppData-kansio: paina `Win+R`, kirjoita `%appdata%` ja paina Enter. Pääset suoraan Roaming-kansioon.
 :::
 
-## Jarjestelmakansiot
+## Järjestelmäkansiot
 
-| Muuttuja | Tyypillinen polku | Sisalto |
+| Muuttuja | Tyypillinen polku | Sisältö |
 |----------|------------------|---------|
-| `$env:SystemRoot` | `C:\Windows` | Windows-kayttojarjestelma |
-| `$env:SystemDrive` | `C:` | Jarjestelmalevyn kirjain |
+| `$env:SystemRoot` | `C:\Windows` | Windows-käyttöjärjestelmä |
+| `$env:SystemDrive` | `C:` | Järjestelmälevyn kirjain |
 | `$env:ProgramFiles` | `C:\Program Files` | 64-bittiset ohjelmat |
 | `${env:ProgramFiles(x86)}` | `C:\Program Files (x86)` | 32-bittiset ohjelmat |
 | `$env:ProgramData` | `C:\ProgramData` | Koko koneen laajuinen ohjelma-data |
 | `$env:windir` | `C:\Windows` | Sama kuin SystemRoot |
 
-## Kaynnistyskansiot
+## Käynnistyskansiot
 
-Ohjelmat naissa kansioissa kaynnistyvat automaattisesti kirjautumisen yhteydessa:
+Ohjelmat näissä kansioissa käynnistyvät automaattisesti kirjautumisen yhteydessä:
 
 | Laajuus | Polku |
 |---------|-------|
-| Nykyinen kayttaja | `$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup` |
-| Kaikki kayttajat | `$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Startup` |
-| Pikakomento | `shell:startup` (kayttaja) / `shell:common startup` (kaikki) |
+| Nykyinen käyttäjä | `$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup` |
+| Kaikki käyttäjät | `$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Startup` |
+| Pikakomento | `shell:startup` (käyttäjä) / `shell:common startup` (kaikki) |
 
 :::tip[Vinkki]
-Paina `Win+R` ja kirjoita `shell:startup` avataksesi kaynnistyskansion suoraan.
+Paina `Win+R` ja kirjoita `shell:startup` avataksesi käynnistyskansion suoraan.
 :::
 
 ## Rekisteripolut
 
-### Paakantahaarukkat
+### Pääkantahaarukkat
 
 | Haara | PowerShell-asema | Laajuus |
 |-------|-----------------|---------|
-| HKEY_CURRENT_USER | `HKCU:` | Nykyisen kayttajan asetukset |
+| HKEY_CURRENT_USER | `HKCU:` | Nykyisen käyttäjän asetukset |
 | HKEY_LOCAL_MACHINE | `HKLM:` | Koko koneen asetukset |
 | HKEY_CLASSES_ROOT | `HKCR:` (vaatii `New-PSDrive`) | Tiedostoyhteydet, COM |
 
@@ -64,16 +64,16 @@ Paina `Win+R` ja kirjoita `shell:startup` avataksesi kaynnistyskansion suoraan.
 
 | Polku | Tarkoitus |
 |-------|-----------|
-| `HKCU:\...\CurrentVersion\Run` | Kayttajan kaynnistysohjelmat |
-| `HKLM:\...\CurrentVersion\Run` | Koneen kaynnistysohjelmat |
+| `HKCU:\...\CurrentVersion\Run` | Käyttäjän käynnistysohjelmat |
+| `HKLM:\...\CurrentVersion\Run` | Koneen käynnistysohjelmat |
 | `HKCU:\...\Explorer\Advanced` | Resurssienhallinnan asetukset |
-| `HKLM:\...\Policies\Microsoft\Windows` | Ryhmakaytantomaaritykset |
+| `HKLM:\...\Policies\Microsoft\Windows` | Ryhmäkäytäntömääritykset |
 | `HKCU:\...\Directory\Background\shell` | Kontekstivalikko (tausta) |
 | `HKCU:\...\Directory\shell` | Kontekstivalikko (kansio) |
 
-## GPU-varisijainnit
+## GPU-väriesijainnit
 
-| Naytonohjain | Varipolku |
+| Näytönohjain | Väripolku |
 |-------------|-----------|
 | NVIDIA | `$env:LOCALAPPDATA\NVIDIA\DXCache` |
 | NVIDIA | `$env:LOCALAPPDATA\NVIDIA\GLCache` |
@@ -83,22 +83,22 @@ Paina `Win+R` ja kirjoita `shell:startup` avataksesi kaynnistyskansion suoraan.
 | Intel | `$env:LOCALAPPDATA\Intel\ShaderCache` |
 | DirectX | `$env:LOCALAPPDATA\D3DSCache` |
 
-## Valiaikais- ja varikansiot
+## Väliaikais- ja värikansiot
 
 | Polku | Tarkoitus |
 |-------|-----------|
-| `$env:TEMP` | Kayttajan valiaikaiset tiedostot |
-| `$env:SystemRoot\Temp` | Jarjestelman valiaikaiset tiedostot |
-| `$env:LOCALAPPDATA\...\INetCache` | IE/Edge-vari |
-| `$env:LOCALAPPDATA\...\Explorer` | Pikkukuvavari (`thumbcache_*.db`) |
+| `$env:TEMP` | Käyttäjän väliaikaiset tiedostot |
+| `$env:SystemRoot\Temp` | Järjestelmän väliaikaiset tiedostot |
+| `$env:LOCALAPPDATA\...\INetCache` | IE/Edge-väri |
+| `$env:LOCALAPPDATA\...\Explorer` | Pikkukuvaväri (`thumbcache_*.db`) |
 | `$env:SystemRoot\SoftwareDistribution\Download` | Windows Update -lataukset |
 | `$env:SystemRoot\Logs\CBS` | Component-Based Servicing -lokit |
 
-## Windows Update ja yllapito
+## Windows Update ja ylläpito
 
 | Polku | Tarkoitus |
 |-------|-----------|
 | `$env:SystemRoot\WinSxS` | Side-by-side-komponenttivarasto |
 | `$env:SystemRoot\SoftwareDistribution` | Windows Update -data |
 | `$env:SystemRoot\Logs\DISM` | DISM-operaatiologit |
-| `$env:SystemRoot\Panther` | Asennus- ja paivityslokit |
+| `$env:SystemRoot\Panther` | Asennus- ja päivityslokit |

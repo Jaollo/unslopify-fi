@@ -1,47 +1,47 @@
 ---
-title: "Vaihe 3: Jarjestelmaaly"
-description: Tekoalyagentti-yhteensopivat viitetiedostot ja jarjestelmaskanneri.
+title: "Vaihe 3: Järjestelmäly"
+description: Tekoälyagentti-yhteensopivat viitetiedostot ja järjestelmäskanneri.
 ---
 
-Vaihe 3 tarjoaa jarjestelmaalykkyytta jota mika tahansa tekoalytyokalu (Claude, ChatGPT, Copilot jne.) voi kayttaa ymmaartaakseen ja konfiguroiakseen jarjestelmasi. Ei vaadi jarjestelmanvalvojan oikeuksia.
+Vaihe 3 tarjoaa järjestelmäälykkyytta jota mikä tahansa tekoälytyökalu (Claude, ChatGPT, Copilot jne.) voi käyttää ymmärtääkseen ja konfiguroimakseen järjestelmäsi. Ei vaadi järjestelmänvalvojan oikeuksia.
 
-## Mita Vaihe 3 sisaltaa?
+## Mitä Vaihe 3 sisältää?
 
 | Tiedosto | Tarkoitus |
 |----------|-----------|
-| `scan-system.ps1` | Luo jarjestelmaprofiilin (OS, ohjelmistot, asetukset, orpotiedostot) |
-| `reference/software-catalog.md` | FOSS-tyokalujen asetusreseptit: polut, asetukset, sudenkuopat |
+| `scan-system.ps1` | Luo järjestelmäprofiilin (OS, ohjelmistot, asetukset, orpotiedostot) |
+| `reference/software-catalog.md` | FOSS-työkalujen asetusreseptit: polut, asetukset, sudenkuopat |
 | `reference/windows-paths.md` | Windows-hakemisto- ja rekisteriviiteopas |
 | `reference/cleanup-targets.md` | ~150 tunnettua bloatware- ja orpotiedostokaavaa |
-| `clipboard-to-file.ps1` | Tallenna leikepoydan sisalto tiedostoksi Resurssienhallinnan kontekstivalikosta |
+| `clipboard-to-file.ps1` | Tallenna leikepöydän sisältö tiedostoksi Resurssienhallintaan kontekstivalikosta |
 
-## Jarjestelmaskanneri
+## Järjestelmäskanneri
 
-Skanneri on **luku-operaatio** eika muuta mitaan jarjestelmassasi:
+Skanneri on **luku-operaatio** eikä muuta mitään järjestelmässäsi:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File "phase3-control/scan-system.ps1"
 ```
 
-Se luo `system-profile.md`-tiedoston joka sisaltaa:
+Se luo `system-profile.md`-tiedoston joka sisältää:
 
-- **Kayttojarjestelma**: Versio, koontiversio, asennuspaiva
+- **Käyttöjärjestelmä**: Versio, koontiversio, asennuspäivä
 - **Asennetut ohjelmat**: Lista kaikista ohjelmista winget-tiedoilla
 - **Nykyiset asetukset**: Rekisteriarvot, palveluiden tilat
-- **Loydetyt orpotiedostot**: Kansiot joita ei kuulu mihinkaan
-- **Levytilan analyysi**: Mika vie tilaa ja mista saa vapautettua
+- **Löydetyt orpotiedostot**: Kansiot joita ei kuulu mihinkään
+- **Levytilan analyysi**: Mikä vie tilaa ja mistä saa vapautettua
 
-## Miten AI-agentti kayttaa Vaihetta 3?
+## Miten AI-agentti käyttää Vaihetta 3?
 
-Tyypillinen tyonkulku:
+Tyypillinen työnkulku:
 
-1. **Skannaa** -- agentti ajaa `scan-system.ps1` ymmaartaakseen nykytilanteen
+1. **Skannaa** -- agentti ajaa `scan-system.ps1` ymmärtääkseen nykytilanteen
 2. **Lue viitteet** -- agentti lukee hakemistotiedostot kontekstiksi
 3. **Toimi** -- agentti ehdottaa kohdennettuja toimenpiteita profiilin perusteella
 
 ### Esimerkki
 
-Anna tekoalyagentillesi (esim. Claude Code) tama ohje:
+Anna tekoälyagentillesi (esim. Claude Code) tämä ohje:
 
 ```
 Lue phase3-control/reference/software-catalog.md ja
@@ -53,22 +53,22 @@ Kerro mita ohjelmia minulta puuttuu ja miten ne konfiguroidaan.
 
 ### Ohjelmistokatalogi
 
-Sisaltaa jokaiselle suositellulle FOSS-tyokalulle:
+Sisältää jokaiselle suositellulle FOSS-työkalulle:
 - Prosessin nimi ja winget-asennuskomento
-- Asetustiedoston polku (ymparistomuuttujilla)
+- Asetustiedoston polku (ympäristömuuttujilla)
 - Suositellut asetukset perusteluineen
 - Sudenkuopat (esim. "Greenshot ylikirjoittaa asetustiedoston sulkiessaan")
 
-Katso taydellinen [Ohjelmistokatalogi](/unslopify-fi/ohjelmistokatalogi/).
+Katso täydellinen [Ohjelmistokatalogi](/unslopify-fi/ohjelmistokatalogi/).
 
 ### Windows-polut
 
-Pikakatsaus kaikkiin tarkeisiin Windows-kansioihin ja rekisteripolkuihin. Hyodyllinen kun haluat tietaa mista jokin asetus loytyy.
+Pikakatsaus kaikkiin tärkeisiin Windows-kansioihin ja rekisteripolkuihin. Hyödyllinen kun haluat tietää mistä jokin asetus löytyy.
 
-Katso taydellinen [Windows-polut -hakemisto](/unslopify-fi/hakemisto/windows-polut/).
+Katso täydellinen [Windows-polut -hakemisto](/unslopify-fi/hakemisto/windows-polut/).
 
 ### Siivouskohteet
 
-Luettelo ~150 tunnetusta bloatware-kaavasta eri kategorioissa. Kaytossa `scan-system.ps1`:ssa.
+Luettelo ~150 tunnetusta bloatware-kaavasta eri kategorioissa. Käytössä `scan-system.ps1`:ssä.
 
-Katso taydellinen [Siivouskohteet-hakemisto](/unslopify-fi/hakemisto/siivouskohteet/).
+Katso täydellinen [Siivouskohteet-hakemisto](/unslopify-fi/hakemisto/siivouskohteet/).
