@@ -3,7 +3,7 @@ title: Siivouskohteet
 description: "~150 tunnettua bloatware- ja orpotiedostokaavaa kategorioittain."
 ---
 
-Tunnetut bloatware- ja orpotiedostokaavat on kerätty Vaiheen 1 skripteista 03 ja 18. Järjestelmäskanneri (`scan-system.ps1`) käyttää näitä tunnistakseen jäänteet. Kaikki polut käyttävät ympäristömuuttujia.
+Tunnetut bloatware- ja orpotiedostokaavat on kerätty Vaiheen 1 skripteista 03 ja 18. Järjestelmäskanneri (`phase1-unslopify/00-scan-system.ps1`) käyttää näitä tunnistakseen jäänteet. Kaikki polut käyttävät ympäristömuuttujia.
 
 ## Program Files (~35 kohdetta)
 

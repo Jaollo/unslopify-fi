@@ -13,13 +13,16 @@ export default defineConfig({
 			locales: {
 				root: { label: 'Suomi', lang: 'fi' },
 			},
+			tableOfContents: false,
+			customCss: ['./src/styles/custom.css'],
+			components: {
+				TwoColumnContent: './src/components/TwoColumnContent.astro',
+			},
 			sidebar: [
-				{ label: 'Aloitus', slug: 'aloitus' },
-				{ label: 'Mika on Unslopify?', slug: 'mika-on-unslopify' },
 				{
 					label: 'Vaiheet',
 					items: [
-						{ label: 'Vaihe 1: Puhdistus', slug: 'vaihe-1-puhdistus' },
+						{ label: 'Vaihe 1: Puhdistus', slug: '' },
 						{ label: 'Vaihe 2: Parannukset', slug: 'vaihe-2-parannukset' },
 						{ label: 'Vaihe 3: Jarjestelmaaly', slug: 'vaihe-3-jarjestelmaaly' },
 					],

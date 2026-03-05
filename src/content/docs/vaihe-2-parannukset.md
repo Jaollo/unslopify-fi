@@ -1,9 +1,7 @@
 ---
 title: "Vaihe 2: Parannukset"
-description: 9 erillisskriptia käyttökokemuksen parantamiseen.
+description: 8 erillisskriptia kayttokokemuksen parantamiseen.
 ---
-
-Vaihe 2 parantaa Windowsin käyttökokemusta puhdistuksen jälkeen. Nämä skriptit ajetaan erikseen (eivät ole konsolivalikossa) ja vaativat järjestelmänvalvojan oikeudet.
 
 ## Skriptit
 
@@ -16,8 +14,7 @@ Vaihe 2 parantaa Windowsin käyttökokemusta puhdistuksen jälkeen. Nämä skrip
 | **05 - Ulkoasu** | Tumma teema + Ohjauspaneelin pikakuvake | Moderni, silmäystävällinen ulkoasu |
 | **06 - Tehosuunnitelma** | Avaa piilotetun Ultimate Performance -tehosuunnitelman | Paras suorituskyky työpöytä- ja pelikäyttöön |
 | **07 - Kansiorakenne** | Luo järjestetyn Projektit/Työ/Henkilökohtainen-rakenteen | Selkeä lähtökohta tiedostojen järjestelyyn |
-| **09 - Palveluoptimointi** | Poistaa seurantapalvelut käytöstä, asettaa tarpeettomia palveluita manuaalisiksi | Vähentää taustaprosesseja ja muistinkäyttöä |
-| **10 - Kuvankatselin** | Asettaa nomacs-ohjelman oletuskuvankatselimeksi | Nopea, kevyt ja avoimen lähdekoodin vaihtoehto Windowsin Kuvat-sovellukselle |
+| **08 - Palveluoptimointi** | Poistaa seurantapalvelut käytöstä, asettaa tarpeettomia palveluita manuaalisiksi | Vähentää taustaprosesseja ja muistinkäyttöä |
 
 ## Miten käytetään
 

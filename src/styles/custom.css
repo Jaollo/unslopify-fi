@@ -1,0 +1,36 @@
+/* Move page content to right column, leave left area for main window */
+@media (min-width: 72em) {
+  :root {
+    --sl-content-width: 28rem;
+    --sl-content-margin-inline: auto 0;
+  }
+
+  .content-panel {
+    font-size: 0.72rem;
+    position: fixed;
+    top: var(--sl-nav-height);
+    right: 0;
+    bottom: 0;
+    width: calc(28rem + 2 * var(--sl-content-pad-x, 1rem));
+    overflow-y: auto;
+    background-color: color-mix(in srgb, var(--sl-color-bg) 85%, var(--sl-color-bg-sidebar));
+    border-inline-start: 1px solid var(--sl-color-hairline-shade);
+    z-index: 10;
+    scrollbar-width: thin;
+    scrollbar-color: #111 transparent;
+  }
+
+  .content-panel h1,
+  .content-panel h2,
+  .content-panel h3,
+  .content-panel h4 {
+    font-size: 0.85rem;
+  }
+
+  /* Remove bright backgrounds from aside/note/tip/warning/danger blocks */
+  .content-panel aside,
+  .content-panel .starlight-aside {
+    background-color: transparent;
+    border-color: var(--sl-color-hairline-shade);
+  }
+}

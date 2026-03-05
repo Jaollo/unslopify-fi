@@ -1,0 +1,125 @@
+---
+// Custom layout: main panel on the left, nav content fixed on the right
+---
+
+<div class="layout-wrapper">
+  <div class="main-panel">
+    <div class="main-panel-content">
+      <h1>Unslopify</h1>
+      <p>
+        Windows 11 tulee täynnä ohjelmistoja joita et pyytänyt. Unslopify poistaa ne
+        kaikki -- Copilotin, Recallin, telemetrian, Edgen, OneDriven ja yli 30 muuta
+        turhaa sovellusta.
+      </p>
+      <p>
+        Valitse oikealta mitä haluat poistaa ja seuraa ohjeita. Kaikki on avointa
+        lähdekoodia ja voit lukea jokaisen skriptin itse ennen ajamista.
+      </p>
+
+      <h2>Miksi tämä on tarpeen</h2>
+      <p>
+        Microsoft on muuttanut Windows 11:n oletusasennuksen mainosalustaksi. Copilot
+        seuraa jokaista liikettäsi, Recall ottaa kuvakaappauksia kaikesta mitä teet,
+        ja Content Delivery Manager asentaa sovelluksia hiljaa taustalla ilman lupaasi.
+      </p>
+      <p>
+        Telemetria lähettää käyttötietoja Microsoftille jatkuvasti. DiagTrack-palvelu,
+        dmwappushservice ja kymmenet ajoitetut tehtävät toimivat taustalla kuluttaen
+        muistia ja kaistaa. Nämä eivät ole valinnaisia -- ne ovat oletuksena päällä
+        eikä niitä voi poistaa Windowsin omista asetuksista.
+      </p>
+
+      <h2>Miten Unslopify toimii</h2>
+      <p>
+        Jokainen skripti noudattaa samaa kaavaa: ensin skannaa ja raportoi mitä löytyi,
+        sitten kysyy vahvistuksen ennen kuin tekee mitään. Rekisterimuutokset
+        varmuuskopioidaan automaattisesti ennen jokaista muutosta.
+      </p>
+      <p>
+        Skriptit on kirjoitettu PowerShellilla ja ne ovat luettavissa sellaisenaan.
+        Mitään ei tapahdu mustassa laatikossa -- voit avata jokaisen tiedoston
+        tekstieditorissa ja lukea tarkalleen mitä se tekee.
+      </p>
+
+      <h2>Vaihe 1: Puhdistus</h2>
+      <p>
+        18 skriptia jotka poistavat Windowsin turhan roskan. Aloita skripteistä 00, 10,
+        11, 12 ja 13 -- ne ovat turvallisimpia ja antavat heti suurimman hyödyn.
+        Skripti 02 on järjestelmäskanneri joka näyttää mitä koneeltasi löytyy
+        ilman että muuttaa mitään.
+      </p>
+      <p>
+        Aja skripti 18 aina viimeisenä. Se siivoo AppData-kansiot ja löytää
+        kaiken jäämää muiden skriptien poistamista sovelluksista.
+      </p>
+
+      <h2>Vaihe 2: Parannukset</h2>
+      <p>
+        Puhdistuksen jälkeen voit parantaa käyttökokemusta. Kontekstivalikko palauttaa
+        Windows 10:n täydellisen hiiren oikean napin valikon. Tehosuunnitelma avaa
+        piilotetun Ultimate Performance -tilan joka poistaa virranhallinnan viiveet.
+      </p>
+      <p>
+        Resurssienhallinta-skripti näyttää tiedostopäätteet, avaa suoraan Tämä
+        tietokone -näkymään ja siivoaa Pikakäytön turhista pikakuvakkeista.
+        Nämä ovat pieniä muutoksia joiden vaikutus tuntuu joka päivä.
+      </p>
+
+      <h2>Vaihe 3: Järjestelmäly</h2>
+      <p>
+        Vaihe 3 on tarkoitettu tekoälytyökaluille. Järjestelmäskanneri luo
+        system-profile.md -tiedoston joka kuvaa nykyisen järjestelmän tilan.
+        Mikä tahansa AI-agentti voi lukea tämän tiedoston ja antaa kohdennettuja
+        suosituksia juuri sinun järjestelmällesi.
+      </p>
+      <p>
+        Ohjelmistokatalogi sisältää yli 20 avoimen lähdekoodin työkalua
+        winget-asennuskomennoilla ja asetusohjeilla. Software-catalog.md kertoo
+        mistä löytyvät asetustiedostot, mitä asetuksia kannattaa muuttaa ja
+        mitkä sudenkuopat pitää välttää.
+      </p>
+    </div>
+  </div>
+  <div class="main-pane"><slot /></div>
+</div>
+
+<style>
+  .layout-wrapper {
+    display: flex;
+    height: calc(100vh - var(--sl-nav-height));
+  }
+
+  .main-panel {
+    flex: 1;
+    padding: 2rem 2rem 2rem 2.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow-y: auto;
+    height: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: #111 transparent;
+  }
+
+  .main-panel-content {
+    max-width: 36rem;
+    padding-top: 2rem;
+  }
+
+  .main-panel-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .main-panel-content p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: var(--sl-color-text);
+  }
+
+  .main-pane {
+    /* content-panel inside here is position:fixed, so this takes no visual space */
+    width: 0;
+    flex-shrink: 0;
+  }
+</style>

@@ -3,18 +3,18 @@ title: Usein kysytyt kysymykset (UKK)
 description: Vastauksia yleisimpiin kysymyksiin Unslopifysta.
 ---
 
-## Yleistä
+## Yleista
 
-### Onko Unslopify turvallista käyttää?
+### Onko Unslopify turvallista kayttaa?
 
-Kyllä. Jokainen skripti kysyy vahvistusta ennen tuhoavia operaatioita, rekisterimuutokset varmuuskopioidaan automaattisesti, ja voit lukea jokaisen skriptin lähdekoodin itse.
+Kylla. Jokainen skripti kysyy vahvistusta ennen tuhoavia operaatioita, rekisterimuutokset varmuuskopioidaan automaattisesti, ja voit lukea jokaisen skriptin lahdekoodin itse.
 
 ### Voiko muutokset peruuttaa?
 
-Suurin osa kyllä:
+Suurin osa kylla:
 - **Rekisterimuutokset** voi palauttaa tuplaklikkaamalla `.reg`-varmuuskopiotiedostoa (`backups/registry/`-kansiossa)
-- **Palvelut** voi palauttaa `services.msc`-työkalulla
-- **Ajoitetut tehtävät** voi palauttaa Tehtävien ajoitus -työkalulla
+- **Palvelut** voi palauttaa `services.msc`-tyokalulla
+- **Ajoitetut tehtavat** voi palauttaa Tehtavien ajoitus -tyokalulla
 
 Poikkeukset joita **ei voi peruuttaa** helposti:
 - CBS-telemetrian poisto (skripti 01) -- vaatii Windowsin uudelleenasennuksen
@@ -28,40 +28,40 @@ Ei. Unslopify on suunniteltu Windows 11:lle. Monet kohteet (Copilot, Recall, uus
 
 ## Tekniset kysymykset
 
-### Miksi PowerShell 5.1 eikä 7+?
+### Miksi PowerShell 5.1 eika 7+?
 
-Skripti 01 käyttää TrustedInstaller-oikeuksia jotka toimivat **vain** Windows PowerShell 5.1:ssa. PowerShell 7+ ei tue samaa mekanismia. Windows PowerShell 5.1 on valmiiksi asennettu jokaiseen Windows 11 -koneeseen.
+Skripti 01 kayttaa TrustedInstaller-oikeuksia jotka toimivat **vain** Windows PowerShell 5.1:ssa. PowerShell 7+ ei tue samaa mekanismia. Windows PowerShell 5.1 on valmiiksi asennettu jokaiseen Windows 11 -koneeseen.
 
-### Mitä "ExecutionPolicy Bypass" tarkoittaa?
+### Mita "ExecutionPolicy Bypass" tarkoittaa?
 
-Windows estää oletuksena PowerShell-skriptien ajamisen turvallisuussyistä. `-ExecutionPolicy Bypass` ohittaa tämän rajoituksen **vain kyseiselle komennolle**. Se ei muuta järjestelmän asetuksia pysyvästi.
+Windows estaa oletuksena PowerShell-skriptien ajamisen turvallisuussyista. `-ExecutionPolicy Bypass` ohittaa taman rajoituksen **vain kyseiselle komennolle**. Se ei muuta jarjestelman asetuksia pysyvasti.
 
-### Mitä tapahtuu jos skripti epäonnistuu?
+### Mita tapahtuu jos skripti epaonnistuu?
 
 - Skripti kirjaa virheet lokitiedostoon (`logs/YYYY-MM-DD.log`)
-- Muut kohteet käyvät läpi edelleen -- yksi virhe ei pysäytä koko skriptia
+- Muut kohteet kayvat lapi edelleen -- yksi virhe ei pysayta koko skriptia
 - Rekisterimuutokset on jo varmuuskopioitu ennen muutosta
 - Voit ajaa skriptin uudelleen turvallisesti
 
-### Miksi skripti 04 puuttuu?
+### Miksi skripti 02 puuttuu?
 
-Se siirrettiin numeroksi 18. AppData-siivous kannattaa ajaa viimeisena koska se löytää muiden skriptien poistamien sovellusten jäämät. Numerointia ei muutettu taaksepäin-yhteensopivuuden vuoksi.
+Vanha uudelleennumerointijaamaa. Skanneri oli aiemmin 02, nyt se on 00 (pikaskannaus).
 
 ---
 
 ## Ongelmatilanteet
 
-### "Suorittaminen on estetty tässä järjestelmässä"
+### "Suorittaminen on estetty tassa jarjestelmassa"
 
-Käytä `-ExecutionPolicy Bypass` -lippua komentosi alussa:
+Kayta `-ExecutionPolicy Bypass` -lippua komentosi alussa:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File Unslopify.ps1
 ```
 
-### Skripti ei löy tiedostoja
+### Skripti ei loyda tiedostoja
 
-Varmista että olet oikeassa kansiossa. Aja ensin:
+Varmista etta olet oikeassa kansiossa. Aja ensin:
 
 ```powershell
 cd C:\polku\unslopify-kansioon
@@ -69,19 +69,19 @@ cd C:\polku\unslopify-kansioon
 
 ### Windows asensi poistetun sovelluksen takaisin
 
-Aja skripti 17 (Block App Resurrection). Se estää Windowsia asentamasta poistettuja sovelluksia uudelleen päivitysten yhteydessä.
+Aja skripti 17 (Block App Resurrection). Se estaa Windowsia asentamasta poistettuja sovelluksia uudelleen paivitysten yhteydessa.
 
-### Edge palasi takaisin Windows Updaten jälkeen
+### Edge palasi takaisin Windows Updaten jalkeen
 
-Aja skripti 15 uudelleen. Microsoftin päivitykset voivat joskus palauttaa Edgen. Skripti 17 auttaa myös estämään tätä.
+Aja skripti 15 uudelleen. Microsoftin paivitykset voivat joskus palauttaa Edgen. Skripti 17 auttaa myos estamaan tata.
 
-### En tiedä mitä skriptejä ajaa
+### En tieda mita skripteja ajaa
 
-Aloita järjestelmäskannerilla (skripti 02) nähdäksesi mitä roskaa koneeltasi löytyy. Aja sitten haluamasi skriptit.
+Aloita pikaskannauksella (skripti 00) nahdaksesi debloat-tilan. Aja sitten haluamasi skriptit.
 
-**Suositeltu järjestys aloittelijoille:**
-1. Skripti 02 -- skannaa ensin
-2. Skripti 00 -- poista Copilot/Recall
+**Suositeltu jarjestys aloittelijoille:**
+1. Skripti 00 -- pikaskannaus
+2. Skripti 04 -- poista Copilot/Recall
 3. Skripti 10 -- poista AppX-bloatware
 4. Skripti 11 -- poista turhat ajoitetut tehtavat
 5. Skripti 12 -- poista Content Delivery

@@ -3,39 +3,48 @@ title: "Vaihe 3: Järjestelmäly"
 description: Tekoälyagentti-yhteensopivat viitetiedostot ja järjestelmäskanneri.
 ---
 
-Vaihe 3 tarjoaa järjestelmäälykkyytta jota mikä tahansa tekoälytyökalu (Claude, ChatGPT, Copilot jne.) voi käyttää ymmärtääkseen ja konfiguroimakseen järjestelmäsi. Ei vaadi järjestelmänvalvojan oikeuksia.
-
 ## Mitä Vaihe 3 sisältää?
 
 | Tiedosto | Tarkoitus |
 |----------|-----------|
-| `scan-system.ps1` | Luo järjestelmäprofiilin (OS, ohjelmistot, asetukset, orpotiedostot) |
+| `scan-system.ps1` | Syvaskanneri: interaktiivinen 3-tason valinta (Full/Moderate/Tin Foil Hat) |
 | `reference/software-catalog.md` | FOSS-työkalujen asetusreseptit: polut, asetukset, sudenkuopat |
 | `reference/windows-paths.md` | Windows-hakemisto- ja rekisteriviiteopas |
 | `reference/cleanup-targets.md` | ~150 tunnettua bloatware- ja orpotiedostokaavaa |
 | `clipboard-to-file.ps1` | Tallenna leikepöydän sisältö tiedostoksi Resurssienhallintaan kontekstivalikosta |
 
-## Järjestelmäskanneri
+## Kaksi skanneria
 
-Skanneri on **luku-operaatio** eikä muuta mitään järjestelmässäsi:
+Molemmat skannerit ovat **luku-operaatioita** eivatka muuta mitaan jarjestelmassasi:
+
+### Pikaskannaus (Phase 1)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "phase1-unslopify/00-scan-system.ps1"
+```
+
+Automaattinen, ei kysy mitaan. Tuottaa jarjestelmatiedot ja debloat-tilan.
+
+### Syvaskannaus (Phase 3)
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File "phase3-control/scan-system.ps1"
 ```
 
-Se luo `system-profile.md`-tiedoston joka sisältää:
+Interaktiivinen 3-tason valinta. Luo `system-profile.md`-tiedoston joka sisaltaa:
 
-- **Käyttöjärjestelmä**: Versio, koontiversio, asennuspäivä
+- **Jarjestelmatiedot**: Versio, koontiversio, CPU, RAM, levyt
 - **Asennetut ohjelmat**: Lista kaikista ohjelmista winget-tiedoilla
 - **Nykyiset asetukset**: Rekisteriarvot, palveluiden tilat
-- **Löydetyt orpotiedostot**: Kansiot joita ei kuulu mihinkään
-- **Levytilan analyysi**: Mikä vie tilaa ja mistä saa vapautettua
+- **Debloat-tila**: Edge, OneDrive, Copilot, Recall, DiagTrack
+- **Loydetyt orpotiedostot**: Kansiot joita ei kuulu mihinkaan
+- **Levytilan analyysi**: Mika vie tilaa ja mista saa vapautettua
 
 ## Miten AI-agentti käyttää Vaihetta 3?
 
 Tyypillinen työnkulku:
 
-1. **Skannaa** -- agentti ajaa `scan-system.ps1` ymmärtääkseen nykytilanteen
+1. **Skannaa** -- agentti ajaa `phase3-control/scan-system.ps1` (syvaskannaus) ymmartaakseen nykytilanteen
 2. **Lue viitteet** -- agentti lukee hakemistotiedostot kontekstiksi
 3. **Toimi** -- agentti ehdottaa kohdennettuja toimenpiteita profiilin perusteella
 
@@ -45,7 +54,7 @@ Anna tekoälyagentillesi (esim. Claude Code) tämä ohje:
 
 ```
 Lue phase3-control/reference/software-catalog.md ja
-phase3-control/scan-system.ps1:n tuottama system-profile.md.
+phase3-control/system-profile.md (tuotettu phase3-control/scan-system.ps1:lla).
 Kerro mita ohjelmia minulta puuttuu ja miten ne konfiguroidaan.
 ```
 
@@ -69,6 +78,6 @@ Katso täydellinen [Windows-polut -hakemisto](/unslopify-fi/hakemisto/windows-po
 
 ### Siivouskohteet
 
-Luettelo ~150 tunnetusta bloatware-kaavasta eri kategorioissa. Käytössä `scan-system.ps1`:ssä.
+Luettelo ~150 tunnetusta bloatware-kaavasta eri kategorioissa. Kaytossa `phase3-control/scan-system.ps1`:ssa.
 
 Katso täydellinen [Siivouskohteet-hakemisto](/unslopify-fi/hakemisto/siivouskohteet/).
