@@ -5,6 +5,11 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	site: 'https://jaollo.github.io',
 	base: '/unslopify-fi',
+	redirects: {
+		'/aloitus/': '/',
+		'/mika-on-unslopify/': '/',
+		'/vaihe-1-puhdistus/': '/',
+	},
 	integrations: [
 		starlight({
 			title: 'Unslopify',
