@@ -13,7 +13,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'Unslopify',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Jaollo/unslopify' }],
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/Jaollo/unslopify-windows' }],
 			defaultLocale: 'root',
 			locales: {
 				root: { label: 'Suomi', lang: 'fi' },
