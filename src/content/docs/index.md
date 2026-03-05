@@ -1,30 +1,30 @@
 ---
 title: "Vaihe 1: Puhdistus"
-description: 18 puhdistusskriptia riskimatriisilla ja yksityiskohtaisilla selityksilla.
+description: 18 puhdistusskriptia yksityiskohtaisilla selityksilla.
 ---
 
 ## Skriptien yleiskatsaus
 
-| # | Skripti | Mita se tekee | Riski |
-|---|---------|--------------|-------|
-| 00 | Pikaskannaus | Jarjestelmatiedot ja debloat-tila -- ei muuta mitaan | Ei riskia |
-| 01 | Telemetria & CBS | Poistaa CBS-telemetriapaketteja TrustedInstallerilla | **Korkea** |
-| 03 | Ohjelmakansiot | Poistaa tunnetun roskan Program Filesista | Keskitaso |
-| 04 | Copilot & Recall | Poistaa Copilotin, Recallin ja Windows AI:n | Matala |
-| 05 | GPU-varit | Tyhjentaa NVIDIA/AMD/Intel shader-varit (usein 5-10 GB) | Matala |
-| 06 | OneDrive | Poistaa OneDriven kokonaan | **Korkea** |
-| 07 | Kaynnista-valikko | Poistaa tyhjat kansiot ja mainoslinkit | Matala |
-| 08 | Jarjestelmasiivous | DISM-puhdistus, temp-tiedostot, varattu tila | Keskitaso |
-| 09 | Oletussovellukset | Poistaa rikkinaiset oletusohjelmakaaviot | Matala |
-| 10 | AppX-bloatware | Massapoistaa kuluttajabloatteen (Xbox, Candy Crush jne.) | Keskitaso |
-| 11 | Ajoitetut tehtavat | Poistaa telemetria- ja uudelleenasennustehtavat kaytosta | Matala |
-| 12 | Content Delivery | Estaa hiljaisen sovellusten asennuksen ja lukitusnayton mainokset | Matala |
-| 13 | Telemetriapalvelut | Poistaa DiagTrack, Delivery Optimization P2P, WER kaytosta | Matala |
-| 14 | Itsepintaiset sovellukset | Pakkopoistaa Teams, Phone Link, Widgets, Cortana, Dev Home | Keskitaso |
-| 15 | Microsoft Edge | Poistaa Edgen (sailyttaa WebView2:n) | **Korkea** |
-| 16 | Laajennettu bloatware | Poistaa Clipchamp, uusi Outlook, To Do, Power Automate jne. | Keskitaso |
-| 17 | Esto uudelleenasennus | Estaa poistettujen sovellusten paluun | Matala |
-| 18 | AppData-siivous | Poistaa poistettujen sovellusten jaamaa AppDatasta | Keskitaso |
+| # | Skripti | Mita se tekee |
+|---|---------|--------------|
+| 00 | Pikaskannaus | Jarjestelmatiedot ja debloat-tila -- ei muuta mitaan |
+| 01 | Telemetria & CBS | Poistaa CBS-telemetriapaketteja TrustedInstallerilla |
+| 03 | Ohjelmakansiot | Poistaa tunnetun roskan Program Filesista |
+| 04 | Copilot & Recall | Poistaa Copilotin, Recallin ja Windows AI:n |
+| 05 | GPU-varit | Tyhjentaa NVIDIA/AMD/Intel shader-varit (usein 5-10 GB) |
+| 06 | OneDrive | Poistaa OneDriven kokonaan |
+| 07 | Kaynnista-valikko | Poistaa tyhjat kansiot ja mainoslinkit |
+| 08 | Jarjestelmasiivous | DISM-puhdistus, temp-tiedostot, varattu tila |
+| 09 | Oletussovellukset | Poistaa rikkinaiset oletusohjelmakaaviot |
+| 10 | AppX-bloatware | Massapoistaa kuluttajabloatteen (Xbox, Candy Crush jne.) |
+| 11 | Ajoitetut tehtavat | Poistaa telemetria- ja uudelleenasennustehtavat kaytosta |
+| 12 | Content Delivery | Estaa hiljaisen sovellusten asennuksen ja lukitusnayton mainokset |
+| 13 | Telemetriapalvelut | Poistaa DiagTrack, Delivery Optimization P2P, WER kaytosta |
+| 14 | Itsepintaiset sovellukset | Pakkopoistaa Teams, Phone Link, Widgets, Cortana, Dev Home |
+| 15 | Microsoft Edge | Poistaa Edgen (sailyttaa WebView2:n) |
+| 16 | Laajennettu bloatware | Poistaa Clipchamp, uusi Outlook, To Do, Power Automate jne. |
+| 17 | Esto uudelleenasennus | Estaa poistettujen sovellusten paluun |
+| 18 | AppData-siivous | Poistaa poistettujen sovellusten jaamaa AppDatasta |
 
 :::note[Numerointi]
 Skripti `02` puuttuu numerojaksosta -- vanha uudelleennumerointijaamaa.
@@ -32,7 +32,7 @@ Skripti `02` puuttuu numerojaksosta -- vanha uudelleennumerointijaamaa.
 
 ## Yksityiskohtaiset selitykset
 
-### 00 -- Pikaskannaus (ei riskia)
+### 00 -- Pikaskannaus
 
 **Mita se tekee:** Skannaa jarjestelman ja tulostaa pikakatsauksen jarjestelmatiedoista ja debloat-tilasta. Ei muuta mitaan.
 
@@ -40,19 +40,19 @@ Skripti `02` puuttuu numerojaksosta -- vanha uudelleennumerointijaamaa.
 
 ---
 
-### 01 -- Telemetria & CBS (korkea riski)
+### 01 -- Telemetria & CBS
 
 **Mita se tekee:** Kayttaa TrustedInstaller-oikeuksia poistaakseen syvaan Windowsiin upotettuja telemetriapaketteja CBS-jarjestelmasta (Component-Based Servicing).
 
 **Miksi:** Nama paketit lahettavat kayttotietoja Microsoftille eika niita voi poistaa tavallisilla keinoilla.
 
 :::danger[Varoitus]
-Tama on syvin ja riskialtein skripti. Se tekee muutoksia joita ei voi peruuttaa ilman Windowsin uudelleenasennusta. Vaatii uudelleenkaynnistyksen.
+Tama on syvin skripti. Se tekee muutoksia joita ei voi peruuttaa ilman Windowsin uudelleenasennusta. Vaatii uudelleenkaynnistyksen.
 :::
 
 ---
 
-### 03 -- Ohjelmakansiot (keskitaso riski)
+### 03 -- Ohjelmakansiot
 
 **Mita se tekee:** Etsii tunnettua roskaa `Program Files`- ja `ProgramData`-kansioista (antivirus-jaamaa, OEM-bloatware, vanhat asennukset).
 
@@ -60,7 +60,7 @@ Tama on syvin ja riskialtein skripti. Se tekee muutoksia joita ei voi peruuttaa 
 
 ---
 
-### 04 -- Copilot & Recall (matala riski)
+### 04 -- Copilot & Recall
 
 **Mita se tekee:** Poistaa Windows Copilot -painikkeen, estaa Recall-ominaisuuden (joka ottaa kuvakaappauksia kaikesta mita teet), ja poistaa AI-ominaisuudet kaytosta rekisterimuutoksilla ja Edge-lipuilla.
 
@@ -70,7 +70,7 @@ Tama on syvin ja riskialtein skripti. Se tekee muutoksia joita ei voi peruuttaa 
 
 ---
 
-### 05 -- GPU-varit (matala riski)
+### 05 -- GPU-varit
 
 **Mita se tekee:** Tyhjentaa NVIDIA:n, AMD:n ja Intelin shader-varit. Nama voivat vieda 5-10 GB levytilaa.
 
@@ -78,7 +78,7 @@ Tama on syvin ja riskialtein skripti. Se tekee muutoksia joita ei voi peruuttaa 
 
 ---
 
-### 06 -- OneDrive (korkea riski)
+### 06 -- OneDrive
 
 **Mita se tekee:** Poistaa OneDriven kokonaan ja palauttaa kansioiden polut paikallisiksi.
 
@@ -88,7 +88,7 @@ Jos sinulla on tiedostoja jotka ovat **vain pilvessa** (Files On-Demand), ne kat
 
 ---
 
-### 10 -- AppX-bloatware (keskitaso riski)
+### 10 -- AppX-bloatware
 
 **Mita se tekee:** Poistaa Windows Store -sovelluksia massana: Xbox, Candy Crush, Bing-uutiset, Teams (kuluttajaversio), TikTok, Instagram, Facebook jne.
 
@@ -96,7 +96,7 @@ Jos sinulla on tiedostoja jotka ovat **vain pilvessa** (Files On-Demand), ne kat
 
 ---
 
-### 15 -- Microsoft Edge (korkea riski)
+### 15 -- Microsoft Edge
 
 **Mita se tekee:** Poistaa Edge-selaimen kokonaan mutta **sailyttaa WebView2:n** (jota monet sovellukset tarvitsevat).
 
@@ -108,7 +108,7 @@ Windows-haun verkkoehdotukset lakkaavat toimimasta Edgen poiston jalkeen. Tama o
 
 ---
 
-### 17 -- Esto uudelleenasennus (matala riski)
+### 17 -- Esto uudelleenasennus
 
 **Mita se tekee:** Estaa Windowsia asentamasta poistettuja sovelluksia uudelleen rekisteri- ja palvelumuutoksilla.
 
@@ -116,7 +116,7 @@ Windows-haun verkkoehdotukset lakkaavat toimimasta Edgen poiston jalkeen. Tama o
 
 ---
 
-### 18 -- AppData-siivous (keskitaso riski)
+### 18 -- AppData-siivous
 
 **Mita se tekee:** Etsii ja poistaa poistettujen sovellusten jattamia tiedostoja AppData-kansioista.
 
