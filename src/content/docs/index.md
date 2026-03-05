@@ -7,8 +7,8 @@ description: 18 puhdistusskriptia yksityiskohtaisilla selityksilla.
 
 | # | Skripti | Mita se tekee |
 |---|---------|--------------|
-| 00 | Pikaskannaus | Jarjestelmatiedot ja debloat-tila -- ei muuta mitaan |
-| 01 | Telemetria & CBS | Poistaa CBS-telemetriapaketteja TrustedInstallerilla |
+| 01 | Pikaskannaus | Jarjestelmatiedot ja debloat-tila -- ei muuta mitaan |
+| 02 | Telemetria & CBS | Poistaa CBS-telemetriapaketteja TrustedInstallerilla |
 | 03 | Ohjelmakansiot | Poistaa tunnetun roskan Program Filesista |
 | 04 | Copilot & Recall | Poistaa Copilotin, Recallin ja Windows AI:n |
 | 05 | GPU-varit | Tyhjentaa NVIDIA/AMD/Intel shader-varit (usein 5-10 GB) |
@@ -26,13 +26,10 @@ description: 18 puhdistusskriptia yksityiskohtaisilla selityksilla.
 | 17 | Esto uudelleenasennus | Estaa poistettujen sovellusten paluun |
 | 18 | AppData-siivous | Poistaa poistettujen sovellusten jaamaa AppDatasta |
 
-:::note[Numerointi]
-Skripti `02` puuttuu numerojaksosta -- vanha uudelleennumerointijaamaa.
-:::
 
 ## Yksityiskohtaiset selitykset
 
-### 00 -- Pikaskannaus
+### 01 -- Pikaskannaus
 
 **Mita se tekee:** Skannaa jarjestelman ja tulostaa pikakatsauksen jarjestelmatiedoista ja debloat-tilasta. Ei muuta mitaan.
 
@@ -40,7 +37,7 @@ Skripti `02` puuttuu numerojaksosta -- vanha uudelleennumerointijaamaa.
 
 ---
 
-### 01 -- Telemetria & CBS
+### 02 -- Telemetria & CBS
 
 **Mita se tekee:** Kayttaa TrustedInstaller-oikeuksia poistaakseen syvaan Windowsiin upotettuja telemetriapaketteja CBS-jarjestelmasta (Component-Based Servicing).
 

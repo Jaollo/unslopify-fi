@@ -20,7 +20,7 @@ Molemmat skannerit ovat **luku-operaatioita** eivatka muuta mitaan jarjestelmass
 ### Pikaskannaus (Phase 1)
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File "phase1-unslopify/00-scan-system.ps1"
+powershell -ExecutionPolicy Bypass -File "phase1-unslopify/01-scan-system.ps1"
 ```
 
 Automaattinen, ei kysy mitaan. Tuottaa jarjestelmatiedot ja debloat-tilan.

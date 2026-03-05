@@ -43,10 +43,6 @@ Windows estaa oletuksena PowerShell-skriptien ajamisen turvallisuussyista. `-Exe
 - Rekisterimuutokset on jo varmuuskopioitu ennen muutosta
 - Voit ajaa skriptin uudelleen turvallisesti
 
-### Miksi skripti 02 puuttuu?
-
-Vanha uudelleennumerointijaamaa. Skanneri oli aiemmin 02, nyt se on 00 (pikaskannaus).
-
 ---
 
 ## Ongelmatilanteet
